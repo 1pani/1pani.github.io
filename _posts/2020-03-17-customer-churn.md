@@ -8,7 +8,7 @@ tags: [churn, data-science, machine-learning]
 # comments: true
 ---
 
-**TL;DR:** Hi there!👋 I will be describing my experience of what it really takes to solve a business problem with the help of Data Science. 
+**TL;DR:** Hi there!👋 I will be describing my experience of what it takes to solve a business problem with the help of Data Science. 
 
 <!-- 
 {: .box-note}
@@ -33,7 +33,7 @@ Honestly, this was the most uneventful step of the project.
 I started working and the product managers(PM) had done some research at their own level and came up with a definition of churn which was kind of an assumption stating if a NiYO Bharat* Customer who hasn't received salary in the past 3 months is classified as churned.
 
 {: .box-note}
-**Note:** - * - NiYO Bharat customers are the [blue-collar](https://en.wikipedia.org/wiki/Blue-collar_worker) workers for which NiYO Bharat Salary cards are issued. Also, the churn is predicted for the month of January 2020 taking consideration of vintage data from July-December 2019.
+**Note:** - * - NiYO Bharat customers are the [blue-collar](https://en.wikipedia.org/wiki/Blue-collar_worker) workers for which NiYO Bharat Salary cards are issued. Also, the churn is predicted for January 2020 taking consideration of vintage data from July-December 2019.
 
 So, we are done with defining what churn actually as in our world.
 
@@ -46,15 +46,15 @@ The most exhaustive and time-consuming step is here. I am going to break down ho
 **Note:** - You might be wondering how can I start feature engineering when I don't have the required data to carry on my work. Well, you might be right theoretically and it might be true for all the ML Hackathons/Competitions. But in real life, first you need to think, discuss what all features might be important and then write specific SQL queries corresponding to each feature and then start working on the fetched data by merging them together.
 
 - Firstly, I stressed on the fact that I should first know what happens at the ground zero by contacting the sales representative and gather information as to what might be the thought-process of the customers when they interact while onboarding them.
-- Then, I had a discussion with my mentor which led to the conclusion of making of 3-level feature set.
-- Also, the opinions of PM were also considered in making the feature set.
+- Then, I had a discussion with my mentor which led to the conclusion of building a 3-level feature set.
+- Also, the opinions of PM were  considered in making the feature set.
 
 So, Feature Engineering was broadly classified into - 
 
 - Transaction - related features. 
 - Demographic - related features.
 - Corporate - specific features.
-- Click stream - related features**
+- Clickstream - related features**
 - Customer support - related features**
 - Customer Account Balance - related features**
 
@@ -75,21 +75,21 @@ I decided to use XGBoost as my base-line model for classifying churn.
 
 The highest F1-score came out to be 83% after multiple parameter tuning. 
 <!-- Insert image -->
-Once again, I would like to highlight the important point that our main aim was to not get higher accuracy or in this case F1-score, rather to identify and analyse the features/factors responsible for a customer churning out of our product.
+Once again, I would like to highlight the important point that our main aim was to not get higher accuracy or in this case F1-score, rather identify and analyze the features/factors responsible for a customer churning out of our product.
 
 
 ### 💥 Impact created
 
-- First of all, I stressed on importance of clickstream data. We should really focus on this untapped data as this is crucial in undersatnding 360-degree customer journey experience.
-- I was also responsible for the decision to focus on analysing the customer support enquiries to know their intent.
+- First of all, I stressed on the importance of clickstream data. We should really focus on this untapped data as this is crucial in understanding360-degree customer journey experience.
+- I was also responsible for the decision to focus on analyzing the customer support queries to know their intent.
 - I also highlighted the decision to implement a knowledge-graph for the NiYO Bharat customer base to understand their actions better.
 
 
 ### 🏁 Wrapping up
 
-You might have noticed that I majorly worked at the intersection of data, engineering, product and growth. If you got this gist, then I was successful in highlighting what it really makes it tick in the real world of Data Science/ML at the industry level. You need to first understand business requirements, understand the product better, discuss the impact you can input, actually build the solution you suggested earlier, validate whether it meets the requirements, push the model/solution to production so as to be used in the product line by the customers.
+You might have noticed that I majorly worked at the intersection of data, engineering, product, and growth. If you got this gist, then I was successful in highlighting what makes it really tick in the real world of Data Science/ML at the industry level. You need to first understand business requirements, understand the product better, discuss the impact you can input, actually build the solution you suggested earlier, validate whether it meets the requirements, push the model/solution to production to be used in the product line by the customers.
 
-__Hope you all enjoyed reading my experience. Don't forget to share thisw tih your friends. I am open for suggestions and valuable feedback.This was my first post with many more to come further. Till then, keep reading, building, breaking stuffs.__ 👍💯
+__Hope you all enjoyed reading my experience. Don't forget to share this with your friends. I am open to suggestions and valuable feedback.This was my first post with many more to come further. Till then, keep reading, building, breaking stuff.__ 👍💯
 
 
 
