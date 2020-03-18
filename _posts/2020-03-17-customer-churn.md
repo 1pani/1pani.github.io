@@ -31,6 +31,7 @@ Enough motivation and let us come back to the topic being discussed here.
 
 Honestly, this was the most uneventful step of the project. 
 I started working and the product managers(PM) had done some research at their own level and came up with a definition of churn which was kind of an assumption stating if a NiYO Bharat* Customer who hasn't received salary in the past 3 months is classified as churned.
+
 {: .box-note}
 **Note:** - * - NiYO Bharat customers are the [blue-collar](https://en.wikipedia.org/wiki/Blue-collar_worker) workers for which NiYO Bharat Salary cards are issued. Also, the churn is predicted for the month of January 2020 taking consideration of vintage data from July-December 2019.
 
@@ -68,6 +69,7 @@ Finally, the data set for model training, with all the steps of Data Cleaning & 
 ### 🚆 Training the model
 
 I decided to use XGBoost as my base-line model for classifying churn. 
+
 {: .box-note}
 **Note:** - If you all want to know more about xgboost, [go to](https://shirinsplayground.netlify.com/2018/11/ml_basics_gbm/) and want to know more about it mathematically, [go to](https://medium.com/syncedreview/tree-boosting-with-xgboost-why-does-xgboost-win-every-machine-learning-competition-ca8034c0b283)
 
