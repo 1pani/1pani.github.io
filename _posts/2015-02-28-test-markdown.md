@@ -37,7 +37,7 @@ Here's a code chunk:
 ~~~
 var foo = function(x) {
   return(x + 5);
-}
+} 
 foo(3)
 ~~~
 
