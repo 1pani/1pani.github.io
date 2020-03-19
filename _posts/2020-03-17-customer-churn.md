@@ -71,7 +71,7 @@ Finally, the data set for model training, with all the steps of Data Cleaning & 
 I decided to use XGBoost as my base-line model for classifying churn. 
 
 {: .box-note}
-**Note:** - If you all want to know more about xgboost, [have a look at](https://shirinsplayground.netlify.com/2018/11/ml_basics_gbm/) and want to know more about it mathematically, then have a look at this [interesting article.](https://medium.com/syncedreview/tree-boosting-with-xgboost-why-does-xgboost-win-every-machine-learning-competition-ca8034c0b283)
+**Note:** - If you all want to know more about xgboost, visit [this site](https://shirinsplayground.netlify.com/2018/11/ml_basics_gbm/) or  have a look at this [interesting article.](https://medium.com/syncedreview/tree-boosting-with-xgboost-why-does-xgboost-win-every-machine-learning-competition-ca8034c0b283) for an in-depth mathematical explanation.
 
 The highest F1-score came out to be 83% after multiple parameter tuning. 
 <!-- Insert image -->
