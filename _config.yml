@@ -4,7 +4,7 @@
 title: Abhilash Pani's website.
 
 # Short description of your site
-description: Virtual presence gets you recognised easily.
+description: I write about Machine Learning related stuffs.
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -120,7 +120,7 @@ google_analytics: "UA-160992692-1"
 # --- Comments --- #
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-disqus: "@disqus_DRNqNS5DpL"
+disqus: "https-1pani-github-io-1"
 
 # If you want to use JustComments fill with the API Key
 #just-comments: "ABCD-EFGH-IJKL"
@@ -129,15 +129,15 @@ disqus: "@disqus_DRNqNS5DpL"
 # fb_comment_id: ""
 
 # To use Staticman comments, fill in repository, branch, and endpoint
-staticman:
-  repository : 1pani/1pani.github.io
-  branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
-  endpoint   : # URL of your own deployment, with a trailing slash (will fallback to a public GitLab instance) eg. https://<your-api>/v3/entry/github/
-  reCaptcha:
-    # reCaptcha for Staticman (OPTIONAL, but recommended for spam protection)
-    # If you use reCaptcha, you must also set these parameters in staticman.yml
-    siteKey  : # Use your own site key, you need to apply for one on Google
-    secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
+# staticman:
+#   repository : 1pani/1pani.github.io
+#   branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
+#   endpoint   : # URL of your own deployment, with a trailing slash (will fallback to a public GitLab instance) eg. https://<your-api>/v3/entry/github/
+#   reCaptcha:
+#     # reCaptcha for Staticman (OPTIONAL, but recommended for spam protection)
+#     # If you use reCaptcha, you must also set these parameters in staticman.yml
+#     siteKey  : # Use your own site key, you need to apply for one on Google
+#     secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
 
 # --- Misc --- #
 
