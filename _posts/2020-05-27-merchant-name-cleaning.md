@@ -164,7 +164,7 @@ vals = df['merchant_name'].unique().astype('U')
 <!-- Write a function for cleaning strings and returning an array of ngrams -->
 def ngrams_analyzer(string):
     string = re.sub(r'[,-./]', r'', string)
-    ngrams = zip(*[string[i:] for i in range(5)]) 
+    ngrams = zip([string[i:] for i in range(5)]) 
     return [''.join(ngram) for ngram in ngrams]
 
 <!-- Construct your vectorizer for building the TF-IDF matrix -->
@@ -348,7 +348,7 @@ group_lookup = {}
 <!-- Write a function for cleaning strings and returning an array of ngrams -->
 def ngrams_analyzer(string):
     string = re.sub(r'[,-./]', r'', string)
-    ngrams = zip(*[string[i:] for i in range(5)]) 
+    ngrams = zip([string[i:] for i in range(5)]) 
     return [''.join(ngram) for ngram in ngrams]
 
 
