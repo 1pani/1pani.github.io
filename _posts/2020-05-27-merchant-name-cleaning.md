@@ -164,7 +164,7 @@ vals = df['merchant_name'].unique().astype('U')
 <!-- Write a function for cleaning strings and returning an array of ngrams -->
 def ngrams_analyzer(string):
     string = re.sub(r'[,-./]', r'', string)
-    ngrams = zip(*[string[i:] for i in range(5)])  # N-Gram length is 5
+    ngrams = zip(*[string[i:] for i in range(5)]) 
     return [''.join(ngram) for ngram in ngrams]
 
 <!-- Construct your vectorizer for building the TF-IDF matrix -->
@@ -280,7 +280,7 @@ def add_vals_to_lookup(group, row, col):
 
 def add_pair_to_lookup(row, col):
     <!-- in this function we'll add both the row and the col to the lookup -->
-    group = find_group(row, col)  # first, see if one has already been added
+    group = find_group(row, col) 
     if group is not None:
         <!-- if we already know the group, make sure both row and col are in lookup -->
         add_vals_to_lookup(group, row, col)
