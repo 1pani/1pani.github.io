@@ -6,7 +6,7 @@ subtitle: Grouping thousands of similar merchant names in quick time
 gh-badge: [follow]
 # comments: true
 readtime: true
-cover-image: img/undraw_annotation_7das.png
+image: img/undraw_annotation_7das.png
 tags: [String matching, Merchant Cleaning, TF-IDF, Cosine similarity, Grouping Similar entities, NLP, Machine Learning]
 ---
 
