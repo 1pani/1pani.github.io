@@ -233,6 +233,7 @@ We’re now going to build a Python dictionary with a key for each unique string
 The fastest way to do this is to convert our CSR matrix to a Coordinate (COO) matrix. A COO matrix is another representation of a sparse matrix.
 
 By example, if we have this sparse matrix:
+
 ~~~
 +------------+
 | 0, 0, 0, 4 |
@@ -301,6 +302,7 @@ Again, take this cosine matrix:
 <script src="https://gist.github.com/lukewhyte/a2f64f0818ad274aeeebf57f8d0d0bbb.js"></script>
 
 If we’d built it using awesome_cossim_topn with the threshold set to 0.8 and then converted it to a COO matrix, we could represent it like this:
+
 ~~~
 (row, col) | data  
  ------------|------ 
@@ -316,6 +318,7 @@ vals would equal ['Walmart', 'Target', 'Wal-mart stores'].
 Thus, inside the loop, our first (row, col) pair to pass the row != col conditional would be (0, 2) which we then pass to add_pair_to_lookup as (vals[0], vals[2) or ('Walmart', 'Wal-mart stores').
 
 Continuing with this example, after all our strings pass through add_pair_to_lookup, we’d end up with:
+
 ~~~
 >>> group_lookup
 {
