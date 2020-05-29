@@ -1,16 +1,17 @@
 ---
 layout: post
-title: 📊 Merchant Name Cleaning
+title: 🧹 Merchant Name Cleaning
 subtitle: Grouping thousands of similar merchant names in quick time
 # gh-repo: daattali/beautiful-jekyll
 # gh-badge: [follow]
 # comments: true
 # readtime: true
-# image: img/undraw_annotation_7das.png
+cover-image: /img/undraw_annotation_7das.png
 tags: [String matching, Merchant Cleaning, TF-IDF, Cosine similarity, Grouping Similar entities, NLP, Machine Learning]
 ---
 
-**TL;DR: HI There!! Dive deeper and learn what it takes to group similar company/merchant names.**
+>
+    TL;DR: Dive deeper and learn to group similar company/merchant names. This is helpful when there are many similar strings which is difficult to be corrected manually.
 
 Here's a common problem that many of us have encountered at least once.
 
@@ -21,7 +22,7 @@ Here's a common problem that many of us have encountered at least once.
 | 2 | P Amazon | Payments |
 | 3 | 1mg Tech | Healthcare |
 | 4 | AmazonPaa | Payments |
-<!-- The following spreadsheet was obtained after executing the initial v0 model of Merchant Name Cleaning which included a 7-step procedure. -->
+
 Here, row 0, 2 and 4 belong to the same merchant name with slight changes in spelling and formatting. Same is the case with row 1 and 3.
 
 Ideally, there would be an easy way to add a new column like this:
@@ -36,7 +37,7 @@ Ideally, there would be an easy way to add a new column like this:
 
 **So, how do we tackle this problem to group similar merchant names for a huge dataset in less time and with great accuracy? Let's find out how.**
 
-So, during my internship @ NiYO, I made the v1 model of merchant name cleaning by solving the problem discussed, and also improved the accuracy with which the dirty merchant names were cleaned in the v0 model.
+During my internship @ NiYO, I made the v1 model of merchant name cleaning by solving the problem discussed, and also improved the accuracy with which the dirty merchant names were cleaned in the v0 model.
 
 Let us take a quick look at the working of the v0 model to have some ground reality about the problem which we are going to solve.
 
@@ -52,7 +53,8 @@ It is a heuristic model which includes the following 7 step procedure:
 - Case correction
 
 Refer to the figure below to understand exactly how a dirty merchant name is cleaned following the 7 steps.
-![](img/stepsv0.png)
+
+![](/img/stepsv0.png)
 
 Now that we have the gist of v0 model, let us proceed towards the v1 model which solves the limitation of v0 model.
 
@@ -243,9 +245,9 @@ By example, if we have this sparse matrix:
 ~~~
 
 And we convert it to a COO matrix, it will become an object with three properties — row, col, data — that containing the following three arrays, respectively:
-- [0, 1, 3, 3]: The row index for each non-zero value (0-indexed)
-- [3, 1, 0, 3]: The column index for each non-zero value (0-indexed)
-- [4, 1, 3, 7]: The non-zero values from our matrix
+- [0, 1, 3, 3] The row index for each non-zero value (0-indexed)
+- [3, 1, 0, 3] The column index for each non-zero value (0-indexed)
+- [4, 1, 3, 7] The non-zero values from our matrix
 
 Thus, we can say that the coordinates for the value 4(stored in matrix.data[0]) are (0,3)(stored in (matrix.row[0],matrix.col[0]).
 
