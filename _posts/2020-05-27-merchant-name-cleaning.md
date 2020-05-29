@@ -3,10 +3,10 @@ layout: post
 title: 📊 Merchant Name Cleaning
 subtitle: Grouping thousands of similar merchant names in quick time
 # gh-repo: daattali/beautiful-jekyll
-gh-badge: [follow]
+# gh-badge: [follow]
 # comments: true
-readtime: true
-image: img/undraw_annotation_7das.png
+# readtime: true
+# image: img/undraw_annotation_7das.png
 tags: [String matching, Merchant Cleaning, TF-IDF, Cosine similarity, Grouping Similar entities, NLP, Machine Learning]
 ---
 
@@ -206,7 +206,7 @@ ING [wrote a blog post explaining why](https://medium.com/wbaa/https-medium-com-
 
 So, let’s add the following to our script:
 
-{% highlight python linenos %}
+```python
 #Import IGN's awesome_cossim_topn module
 from sparse_dot_topn import awesome_cossim_topn
 
@@ -221,7 +221,7 @@ cosine_matrix = awesome_cossim_topn(
   vals.size,
   0.8
 )
-{% endhighlight %}
+```
 
 Now we have a CSR matrix representing the cosine similarity between all our strings.
 
@@ -251,7 +251,7 @@ Thus, we can say that the coordinates for the value 4(stored in matrix.data[0]) 
 
 Let’s build our COO matrix and use it to populate our dictionary:
 
-{% highlight python linenos %}
+```python
 #Build a coordinate matrix from a cosine matrix
 coo_matrix = cosine_matrix.tocoo()
 
@@ -295,7 +295,7 @@ for row, col in zip(coo_matrix.row, coo_matrix.col):
         #Note that what is passed to add_pair_to_lookup is the string at each index
         #(eg: the names in the legal_name column) not the indices themselves
         add_pair_to_lookup(vals[row], vals[col])
-{% endhighlight %}
+```
 
 Again, take this cosine matrix:
 <script src="https://gist.github.com/lukewhyte/a2f64f0818ad274aeeebf57f8d0d0bbb.js"></script>
@@ -331,7 +331,7 @@ Continuing with this example, after all our strings pass through add_pair_to_loo
 We now map each merchant_name to a new grouped_merchant column in our final dataframe.
 
 Finally, putting all the code together.
-{% highlight python linenos %}
+```python
 import re
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -405,7 +405,7 @@ for row, col in zip(coo_matrix.row, coo_matrix.col):
 df['grouped_merchant'] = df['merchant_name'].map(group_lookup).fillna(df['merchant_name'])
 
 df.to_csv('./grouped.csv')
-{% endhighight %}
+```
 
 {: .box-note}
 **Note**: This blog was heavily inspired by [Luke ALlan Whyte's](http://lukeallanwhyte.com/) work in which he built a python module named [text-pack](https://github.com/lukewhyte/textpack) which does this task of grouping similar strings very efficiently and I would definitely recommend you all to have a look at it.
