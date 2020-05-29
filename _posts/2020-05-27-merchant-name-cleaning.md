@@ -5,12 +5,12 @@ subtitle: Grouping thousands of similar merchant names in quick time
 # gh-repo: daattali/beautiful-jekyll
 # gh-badge: [follow]
 # comments: true
-readtime: true
-cover-img: /img/undraw_annotation_7das.png
+# readtime: true
+# cover-img: /img/undraw_annotation_7das.png
 tags: [String matching, Merchant Cleaning, TF-IDF, Cosine similarity, Grouping Similar entities, NLP, Machine Learning]
 ---
+![](/img/undraw_annotation_7das.png)
 
->
     TL;DR: Dive deeper and learn to group similar company/merchant names. This is helpful when there are many similar strings which is difficult to be corrected manually.
 
 Here's a common problem that many of us have encountered at least once.
