@@ -4,7 +4,7 @@
 title: Abhilash Pani
 
 # Short description of your site
-description: I write about Machine Learning related stuffs.
+description: I write about Machine Learning related stuffs
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -177,6 +177,7 @@ defaults:
       layout: "post"
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
+      readtime: true
   -
     scope:
       path: "" # all files
