@@ -53,7 +53,6 @@ It is a heuristic model which includes the following 7 step procedure:
 
 Refer to the figure below to understand exactly how a dirty merchant name is cleaned following the 7 steps.
 ![](img/stepsv0.png)
-<!-- ![](path/to/second) -->
 
 Now that we have the gist of v0 model, let us proceed towards the v1 model which solves the limitation of v0 model.
 
@@ -148,31 +147,31 @@ Thus when we construct our Document Term Matrix, lets calculate the TF-IDF score
 Finally, some code:
 Here’s the code for building a Document Term Matrix with N-Grams as column headers and TF-IDF scores for values:
 
-{% highlight python linenos %}
+```python
 import re
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-<!-- Import your data to a Pandas.DataFrame -->
+#Import your data to a Pandas.DataFrame
 df = pd.read_csv('')
 
-<!-- Grab the column you'd like to group, filter out duplicate values -->
-<!-- and make sure the values are Unicode -->
+#Grab the column you'd like to group, filter out duplicate values
+#and make sure the values are Unicode
 vals = df['merchant_name'].unique().astype('U')
 
 
-<!-- Write a function for cleaning strings and returning an array of ngrams -->
+#Write a function for cleaning strings and returning an array of ngrams
 def ngrams_analyzer(string):
     string = re.sub(r'[,-./]', r'', string)
     ngrams = zip([string[i:] for i in range(5)]) 
     return [''.join(ngram) for ngram in ngrams]
 
-<!-- Construct your vectorizer for building the TF-IDF matrix -->
+#Construct your vectorizer for building the TF-IDF matrix
 vectorizer = TfidfVectorizer(analyzer=ngrams_analyzer)
 
-<!-- Build the matrix!!! -->
+#Build the matrix!!!
 tfidf_matrix = vectorizer.fit_transform(vals)
-{% endhighlight %}
+```
 
 #### Sparse vs Dense matrices and how to crash your computer
 
@@ -208,14 +207,14 @@ ING [wrote a blog post explaining why](https://medium.com/wbaa/https-medium-com-
 So, let’s add the following to our script:
 
 {% highlight python linenos %}
-<!-- Import IGN's awesome_cossim_topn module -->
+#Import IGN's awesome_cossim_topn module
 from sparse_dot_topn import awesome_cossim_topn
 
-<!-- The arguments for awesome_cossim_topn are as follows: -->
-<!-- 1. Our TF-IDF matrix -->
-<!-- 2. Our TF-IDF matrix transposed (allowing us to build a pairwise cosine matrix) -->
-<!-- 3. A top_n filter, which allows us to filter the number of matches returned, which isn't useful for our purposes -->
-<!-- 4. This is our similarity threshold. Only values over 0.8 will be returned -->
+#The arguments for awesome_cossim_topn are as follows:
+#1. Our TF-IDF matrix
+#2. Our TF-IDF matrix transposed (allowing us to build a pairwise cosine matrix)
+#3. A top_n filter, which allows us to filter the number of matches returned, which isn't useful for our purposes
+#4. This is our similarity threshold. Only values over 0.8 will be returned 
 cosine_matrix = awesome_cossim_topn(
   tf_idf_matrix,
   tf_idf_matrix.transpose(),
@@ -253,16 +252,16 @@ Thus, we can say that the coordinates for the value 4(stored in matrix.data[0]) 
 Let’s build our COO matrix and use it to populate our dictionary:
 
 {% highlight python linenos %}
-<!-- Build a coordinate matrix from a cosine matrix -->
+#Build a coordinate matrix from a cosine matrix
 coo_matrix = cosine_matrix.tocoo()
 
-<!-- Instaniate our lookup hash table -->
+#Instaniate our lookup hash table
 group_lookup = {}
 
 
 def find_group(row, col):
-    <!-- If either the row or the col string have already been given -->
-    <!-- a group, return that group. Otherwise return none -->
+    #If either the row or the col string have already been given
+    #a group, return that group. Otherwise return none
     if row in group_lookup:
         return group_lookup[row]
     elif col in group_lookup:
@@ -272,29 +271,29 @@ def find_group(row, col):
 
 
 def add_vals_to_lookup(group, row, col):
-    <!-- Once we know the group name, set it as the value -->
-    <!-- for both strings in the group_lookup -->
+    #Once we know the group name, set it as the value
+    #for both strings in the group_lookup
     group_lookup[row] = group
     group_lookup[col] = group
 
 
 def add_pair_to_lookup(row, col):
-    <!-- in this function we'll add both the row and the col to the lookup -->
+    #in this function we'll add both the row and the col to the lookup
     group = find_group(row, col) 
     if group is not None:
-        <!-- if we already know the group, make sure both row and col are in lookup -->
+        #if we already know the group, make sure both row and col are in lookup
         add_vals_to_lookup(group, row, col)
     else:
-        <!-- f we get here, we need to add a new group. -->
-        <!-- The name is arbitrary, so just make it the row -->
+        #if we get here, we need to add a new group.
+        #The name is arbitrary, so just make it the row
         add_vals_to_lookup(row, row, col)
 
-<!-- for each row and column in coo_matrix -->
-<!-- if they're not the same string add them to the group lookup -->
+#for each row and column in coo_matrix
+#if they're not the same string add them to the group lookup
 for row, col in zip(coo_matrix.row, coo_matrix.col):
     if row != col:
-        <!-- Note that what is passed to add_pair_to_lookup is the string at each index -->
-        <!-- (eg: the names in the legal_name column) not the indices themselves -->
+        #Note that what is passed to add_pair_to_lookup is the string at each index
+        #(eg: the names in the legal_name column) not the indices themselves
         add_pair_to_lookup(vals[row], vals[col])
 {% endhighlight %}
 
@@ -338,14 +337,14 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sparse_dot_topn import awesome_cossim_topn
 
-<!-- Import your data to a Pandas.DataFrame -->
+#Import your data to a Pandas.DataFrame
 df = pd.read_csv()
 
-<!-- Instaniate our lookup hash table -->
+#Instaniate our lookup hash table
 group_lookup = {}
 
 
-<!-- Write a function for cleaning strings and returning an array of ngrams -->
+#Write a function for cleaning strings and returning an array of ngrams
 def ngrams_analyzer(string):
     string = re.sub(r'[,-./]', r'', string)
     ngrams = zip([string[i:] for i in range(5)]) 
@@ -353,8 +352,8 @@ def ngrams_analyzer(string):
 
 
 def find_group(row, col):
-    <!-- If either the row or the col string have already been given -->
-    <!-- a group, return that group. Otherwise return none -->
+    #If either the row or the col string have already been given
+    #a group, return that group. Otherwise return none
     if row in group_lookup:
         return group_lookup[row]
     elif col in group_lookup:
@@ -364,41 +363,41 @@ def find_group(row, col):
 
 
 def add_vals_to_lookup(group, row, col):
-    <!-- Once we know the group name, set it as the value -->
-    <!-- for both strings in the group_lookup -->
+    #Once we know the group name, set it as the value
+    #for both strings in the group_lookup
     group_lookup[row] = group
     group_lookup[col] = group
 
 
 def add_pair_to_lookup(row, col):
-    <!-- in this function we'll add both the row and the col to the lookup -->
+    #in this function we'll add both the row and the col to the lookup
     group = find_group(row, col)  
     if group is not None:
-        <!-- if we already know the group, make sure both row and col are in lookup -->
+        #if we already know the group, make sure both row and col are in lookup
         add_vals_to_lookup(group, row, col)
     else:
-        <!-- if we get here, we need to add a new group. -->
-        <!-- The name is arbitrary, so just make it the row -->
+        #if we get here, we need to add a new group.
+        #The name is arbitrary, so just make it the row
         add_vals_to_lookup(row, row, col)
 
 
-<!-- Construct your vectorizer for building the TF-IDF matrix -->
+#Construct your vectorizer for building the TF-IDF matrix
 vectorizer = TfidfVectorizer(analyzer=ngrams_analyzer)
 
-<!-- Grab the column you'd like to group, filter out duplicate values -->
-<!-- and make sure the values are Unicode -->
+#Grab the column you'd like to group, filter out duplicate values
+#and make sure the values are Unicode
 vals = df['merchant_name'].unique().astype('U')
 
-<!-- Build the matrix!!! -->
+#Build the matrix!!!
 tfidf_matrix = vectorizer.fit_transform(vals)
 
 cosine_matrix = awesome_cossim_topn(tf_idf_matrix, tf_idf_matrix.transpose(), vals.size, 0.8)
 
-<!-- Build a coordinate matrix -->
+#Build a coordinate matrix
 coo_matrix = cosine_matrix.tocoo()
 
-<!-- for each row and column in coo_matrix -->
-<!-- if they're not the same string add them to the group lookup -->
+#for each row and column in coo_matrix
+#if they're not the same string add them to the group lookup
 for row, col in zip(coo_matrix.row, coo_matrix.col):
     if row != col:
         add_pair_to_lookup(vals[row], vals[col])
