@@ -23,7 +23,7 @@ Here's a common problem that many of us have encountered at least once.
 | 3 | 1mg Tech | Healthcare |
 | 4 | AmazonPaa | Payments |
 
-Here, row 0, 2 and 4 belong to the same merchant name with slight changes in spelling and formatting. Same is the case with row 1 and 3.
+Here, row 0, 2, and 4 belong to the same merchant name with slight changes in spelling and formatting. Same is the case with row 1 and 3.
 
 Ideally, there would be an easy way to add a new column like this:
 
@@ -37,7 +37,7 @@ Ideally, there would be an easy way to add a new column like this:
 
 **So, how do we tackle this problem to group similar merchant names for a huge dataset in less time and with great accuracy? Let's find out how.**
 
-During my internship @ NiYO, I made the v1 model of merchant name cleaning by solving the problem discussed, and also improved the accuracy with which the dirty merchant names were cleaned in the v0 model.
+During my internship @ NiYO, I made the `v1 model of merchant name cleaning by solving the problem discussed`, and also improved the `accuracy by 10%` with which the dirty merchant names were cleaned in the `v0 model.`
 
 Let us take a quick look at the working of the v0 model to have some ground reality about the problem which we are going to solve.
 
@@ -56,7 +56,7 @@ Refer to the figure below to understand exactly how a dirty merchant name is cle
 
 ![](/img/stepsv0.png)
 
-Now that we have the gist of v0 model, let us proceed towards the v1 model which solves the limitation of v0 model.
+Now that we have the gist of the v0 model, let us proceed towards the v1 model which solves the limitation of the v0 model.
 
 ### v1 
 
@@ -65,14 +65,14 @@ It involves a 3-step procedure:
 - Using cosine similarity to calculate proximity between strings
 - Using a hash table to convert our findings to a "grouped" column in our spreadsheet.
 
-For this model, I used dataset consisting of around 60,000 merchant names along with their merchant_id, mcc_code and merchant_country_code which is generated corresponding to each transaction done under NiYO Card.
+For this model, I used dataset consisting of around 60,000 merchant names along with their merchant_id, mcc_code, and merchant_country_code which is generated corresponding to each transaction done under NiYO Card.
 *I cannot share the dataset for undisclosed reasons*
 
 ### Step I: Build a Document Term Matrix with TF-IDF and N-Grams
 
-The biggest challenge here is to compare each row with every other entry in the column which leads to O(n^2) order of complexity for n almost equal to 60,000 which is definitely not feasible.
+The biggest challenge here is to compare each row with every other entry in the column which leads to O(n^2) order of complexity for n almost equal to 60,000 which is not feasible.
 
-It would be much faster if we could use matrix multiplication to make simultaneous calculations, which we can do with a Document Term Matrix, TF-IDF and N-Grams.
+It would be much faster if we could use matrix multiplication to make simultaneous calculations, which we can do with a Document Term Matrix, TF-IDF, and N-Grams.
 
 Let us define those terms:
 
@@ -118,7 +118,7 @@ Thus, instead of counting words, we can assign them a TF-IDF score, which evalua
 
 #### TF-IDF
 
-To calculate TF-IDF scores, we multiply the amount of times a term appears in a single document (Term Frequency or TF) by the significance of the term to the whole corpus (Inverse Document Frequency or IDF) — the more documents a word appears in, the less valuable that word is thought to be in differentiating documents from one another.
+To calculate TF-IDF scores, we multiply the number of times a term appears in a single document (Term Frequency or TF) by the significance of the term to the whole corpus (Inverse Document Frequency or IDF) — the more documents a word appears in, the less valuable that word is thought to be in differentiating documents from one another.
 
 [Take a gander here](www.tfidf.com) if you are interested in the math behind calculating TF-IDF scores.
 
@@ -126,9 +126,9 @@ The important takeaway is that, for each word in our Document Term Matrix, if we
 
 #### N-Grams
 
-Finally we’ll tackle this problem:
+Finally, we’ll tackle this problem:
 
-Burger Kingis two words. BurgerKing should be two words, but a computer will see it as one. Thus, when we calculate our Document Term Matrix, these terms won’t match.
+Burger King is two words. BurgerKing should be two words, but a computer will see it as one. Thus, when we calculate our Document Term Matrix, these terms won’t match.
 
 N-grams are a way of breaking strings into smaller chunks where N is the size of the chunk. So, if we set N to 3, we get:
 
@@ -144,7 +144,7 @@ and
 
 which have significantly more overlap than the original strings.
 
-Thus when we construct our Document Term Matrix, lets calculate the TF-IDF score for N-Grams instead of words.
+Thus when we construct our Document Term Matrix, let's calculate the TF-IDF score for N-Grams instead of words.
 
 Finally, some code:
 Here’s the code for building a Document Term Matrix with N-Grams as column headers and TF-IDF scores for values:
@@ -185,7 +185,7 @@ There’s no reason to store all those zeros in memory. If we do, there’s a ch
 
 Enter the CSR matrix, which stores only the matrix’s nonzero values and references to their original location.
 
-This is an oversimplification and you can [learn the nitty gritty here](https://towardsdatascience.com/handling-sparse-matrix-concept-behind-compressed-sparse-row-csr-matrix-4fe6abe58a7a). The important takeaway is that the CSR format saves memory while still allowing for fast row access and matrix multiplication.
+This is an oversimplification and you can [learn the nitty-gritty here](https://towardsdatascience.com/handling-sparse-matrix-concept-behind-compressed-sparse-row-csr-matrix-4fe6abe58a7a). The important takeaway is that the CSR format saves memory while still allowing for fast row access and matrix multiplication.
 
 ### Step II: Using cosine similarity to calculate the proximity between strings
 
@@ -200,9 +200,9 @@ It measures the cosine of the angle between strings in a multidimensional space.
 We could use scikit-learn to calculate cosine similarity. This would return a pairwise matrix with cosine similarity values like:
 <script src="https://gist.github.com/lukewhyte/a2f64f0818ad274aeeebf57f8d0d0bbb.js"></script>
 
-We would then filter this matrix by a similarity threshold — something like 0.75 or 0.8 — in order to group strings we believe represent the same entity.
+We would then filter this matrix by a similarity threshold — something like 0.75 or 0.8 — to group strings we believe represent the same entity.
 
-However, if instead we use [this module](https://github.com/ing-bank/sparse_dot_topn) built by the data scientists at ING Bank, we can filter by our similarity threshold as we build the matrix. The approach is faster than scikit-learn and returns a less memory intensive CSR matrix for us to work with.
+However, if instead, we use [this module](https://github.com/ing-bank/sparse_dot_topn) built by the data scientists at ING Bank, we can filter by our similarity threshold as we build the matrix. The approach is faster than scikit-learn and returns a less memory-intensive CSR matrix for us to work with.
 
 ING [wrote a blog post explaining why](https://medium.com/wbaa/https-medium-com-ingwbaa-boosting-selection-of-the-most-similar-entities-in-large-scale-datasets-450b3242e618), if you’re interested.
 
@@ -410,7 +410,7 @@ df.to_csv('./grouped.csv')
 ```
 
 {: .box-note}
-**Note**: This blog was heavily inspired by [Luke ALlan Whyte's](http://lukeallanwhyte.com/) work in which he built a python module named [text-pack](https://github.com/lukewhyte/textpack) which does this task of grouping similar strings very efficiently and I would definitely recommend you all to have a look at it.
+**Note**: This blog was heavily inspired by [Luke Allan Whyte's](http://lukeallanwhyte.com/) work in which he built a python module named [text-pack](https://github.com/lukewhyte/textpack) which does this task of grouping similar strings very efficiently and I would definitely recommend you all to have a look at it.
 
 **Thanks!!**
 
