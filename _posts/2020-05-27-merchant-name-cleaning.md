@@ -120,7 +120,7 @@ Thus, instead of counting words, we can assign them a TF-IDF score, which evalua
 
 To calculate TF-IDF scores, we multiply the number of times a term appears in a single document (Term Frequency or TF) by the significance of the term to the whole corpus (Inverse Document Frequency or IDF) — the more documents a word appears in, the less valuable that word is thought to be in differentiating documents from one another.
 
-[Take a gander here](www.tfidf.com) if you are interested in the math behind calculating TF-IDF scores.
+[Take a gander here](http://tfidf.com) if you are interested in the math behind calculating TF-IDF scores.
 
 The important takeaway is that, for each word in our Document Term Matrix, if we replace the word count with a TF-IDF score, we can weigh words more effectively when checking for string similarity.
 
@@ -316,7 +316,7 @@ If we’d built it using awesome_cossim_topn with the threshold set to 0.8 and t
 
 vals would equal ['Walmart', 'Target', 'Wal-mart stores'].
 
-Thus, inside the loop, our first (row, col) pair to pass the row != col conditional would be (0, 2) which we then pass to add_pair_to_lookup as (vals[0], vals[2) or ('Walmart', 'Wal-mart stores').
+Thus, inside the loop, our first (row, col) pair to pass the row != col conditional would be (0, 2) which we then pass to add_pair_to_lookup as (vals[0], vals[2]) or ('Walmart', 'Wal-mart stores').
 
 Continuing with this example, after all our strings pass through add_pair_to_lookup, we’d end up with:
 
