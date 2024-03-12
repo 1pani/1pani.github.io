@@ -4,7 +4,7 @@
 title: Abhilash Pani
 
 # Short description of your site
-description: I write 
+description: Biz-Tech Consultant | Product Manager | ML & AI Expert 
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -22,8 +22,9 @@ description: I write
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - Resume: "/Resume_Abhilash_Pani_2019.pdf"
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
+    - Resume: "/Resume_Abhilash_Pani_2024.pdf"
+    - Substack: "https://abhilashpani.substack.com/"
+#    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
 #     - Learn markdown: "http://www.markdowntutorial.com/"
       
 #   Author's home: "http://deanattali.com"
@@ -70,7 +71,7 @@ author:
 # If you want to add a new link that isn't here, you'll need to also edit the file _data/SocialNetworks.yml
 social-network-links:
 #   rss: false
-  email: "abhilashpani651@gmail.com"
+  email: "abhilashpani04@gmail.com"
   # facebook: deanattali
   github: 1pani
   twitter: AbhilashPani4
@@ -79,7 +80,7 @@ social-network-links:
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
-  instagram: pani_aur_punny
+#  instagram: pani_aur_punny
 #  youtube: user/deanat78
 #  spotify: yourname
 #  telephone: +14159998888
