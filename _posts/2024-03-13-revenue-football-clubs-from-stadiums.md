@@ -10,9 +10,7 @@ subtitle: Business of revival of AC Milan and Inter Milan by demolishing the San
 tags: [Football business, Football revenue, Culture, Business, Sports]
 --- 
 
-----------
-
-[](/img/san_siro.jpg)
+![](/img/san_siro.jpg)
 
 This story explains the relationship between football club's revenue and it's football stadium. 
 
