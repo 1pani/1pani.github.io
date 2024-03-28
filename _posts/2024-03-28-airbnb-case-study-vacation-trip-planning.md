@@ -13,7 +13,7 @@ tags: [Product Management, PM, Airbnb, Case Study, Business]
 ![](/img/airbnb/cover.png)
 
 ~~~
-**TL;DR:** A product case study where I solve a problem statement of 'Vacation & Trip Planning' for Airbnb by making a minimum-viable product (MVP)
+TL;DR: A product case study where I solve a problem statement of 'Vacation & Trip Planning' for Airbnb by making a minimum-viable product (MVP)
 ~~~
 
 ## Context
@@ -49,7 +49,7 @@ The customer's worries, and **anxieties are endless!** And on top of that, each 
 -   “Bachelors trip woohoo!”
 
 ~~~
-📢 **What is the MVP of a product that solves these problems and helps Airbnb take the first step into the market of “vacation and trip planning”?**
+📢 What is the MVP of a product that solves these problems and helps Airbnb take the first step into the market of “vacation and trip planning”?
 ~~~
 
 ~~~
@@ -58,23 +58,23 @@ The customer's worries, and **anxieties are endless!** And on top of that, each 
 
 ## Contents
 
--   1. User Persona
+-    User Persona
 
--   2. Jobs to be Done
+-    Jobs to be Done
 
--   3. Ideas explored
+-    Ideas explored
 
--   4. MVP Features
+-    MVP Features
 
--   5. Feature Selection
+-    Feature Selection
 
--   6. What will happen? (Transformation)
+-    What will happen? (Transformation)
 
--   7. Feature Walkthrough
+-    Feature Walkthrough
 
--   8. Metrics
+-    Metrics
 
--   9. Refereces
+-    Refereces
 
 ### 1. 🧑🏽‍💻User Persona
 
@@ -137,7 +137,7 @@ MoSCoW framework:
 
 ![Moscow_framework.png](/img/airbnb/Moscow_framework.png)
 
-<aside> 🚨 _View the above images in full screen._
+<aside> 🚨 View the above images in full screen in a new tab.
 
 </aside>
 
