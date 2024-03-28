@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ⚽💰 Airbnb Vacation & Trip planning - A Product Case Study
+title: ✈️ Airbnb Vacation & Trip planning - A Product Case Study
 subtitle: Designing MVP of a product providing a one-place solution for planning entire vacation and trip.
 # gh-repo: daattali/beautiful-jekyll
 # gh-badge: [follow]
